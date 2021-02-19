@@ -1,0 +1,30 @@
+@import "./reset.scss";
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.allCharacters {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: sandybrown;
+  // margin-bottom: 5px;
+}
+
+.character {
+  background-color: red;
+  height: 100px;
+  width: 100px;
+  margin: 70px;
+  img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    object-position: center;
+  }
+}
