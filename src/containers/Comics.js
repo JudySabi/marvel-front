@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
+import CharacterById from "../components/CharacterById";
 
 const Comics = () => {
   const [loading, setLoading] = useState(false);
@@ -23,9 +24,13 @@ const Comics = () => {
     };
     fetchData();
   }, [id]);
-  console.log(id);
-  console.log(comics);
-  return loading ? <div>comics</div> : <p>en cours de chargement..</p>;
+  // console.log(id);
+  // console.log(comics);
+  return loading ? (
+    <CharacterById data={comics} />
+  ) : (
+    <p>en cours de chargement..</p>
+  );
 };
 
 export default Comics;

@@ -3,22 +3,24 @@ import axios from "axios";
 import Character from "../components/Character";
 import { useHistory } from "react-router-dom";
 
-const Home = () => {
+const Home = ({ search }) => {
   const history = useHistory();
   const [loading, setLoading] = useState(false);
   // STATE
   const [characters, setCharacters] = useState();
   const [skip, setSkip] = useState(0);
   const [limit, setLimit] = useState(100);
+  // const [name, setName] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://mahe-marvel-back.herokuapp.com/characters/?skip=${skip}&limit=${limit}`
+          `https://mahe-marvel-back.herokuapp.com/characters/?skip=${skip}&limit=${limit}&name=${search}`
         );
         setCharacters(response.data);
         setLoading(true);
+        console.log(search);
       } catch (error) {
         console.log(error.message);
       }
@@ -48,7 +50,6 @@ const Home = () => {
           <p>en cours de chargement..</p>
         )}
       </div>
-      <div>Home</div>
     </>
   );
 };
