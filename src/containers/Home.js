@@ -26,7 +26,7 @@ const Home = ({ search }) => {
       }
     };
     fetchData();
-  });
+  }, [search]);
 
   const handleCharacter = (id) => {
     history.push(`/comics/${id}`, { id: id });
